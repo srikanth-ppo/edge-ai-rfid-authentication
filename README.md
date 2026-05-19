@@ -57,15 +57,23 @@ RFID Reader → Edge Device (Khadas VIM3) → Face Verification Engine → MEC S
 
 ---
 
-## Workflow
+## Source Code Structure
 
-1. RFID tag is scanned using UHF RFID reader.
-2. Identity event is transmitted to edge node.
-3. Facial embedding extraction is performed on-device.
-4. Authentication payload is transmitted using UDP.
-5. MEC server validates RFID + facial verification results.
-6. Final authentication decision is generated.
+### RFID UDP Sender
+Handles:
+- Real-time RFID CSV monitoring
+- EPC extraction
+- Duplicate suppression
+- UDP event transmission
 
+### MEC Face Verification Receiver
+Handles:
+- UDP packet reception
+- Database authentication
+- RTSP camera processing
+- Face detection and enhancement
+- DeepFace embedding comparison
+- Multi-factor verification workflow
 ---
 
 ## Performance Highlights
